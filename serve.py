@@ -2,7 +2,7 @@ import http.server
 import os
 
 PORT = 5000
-DIRECTORY = "site"
+DIRECTORY = "."
 
 class NoCacheHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
