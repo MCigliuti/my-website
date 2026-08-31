@@ -2732,7 +2732,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const heading = journeyHeader.querySelector('h2');
     const intro = journeyHeader.querySelector('p');
     if (heading) heading.textContent = 'Your Recovery Journey';
-    if (intro) intro.textContent = "Recovery isn't a checklist. Here's what the process actually looks like.";
+    if (intro) intro.textContent = 'Every pain journey is different. Here is how we begin—and what can come next.';
   }
 
   const journeyGrid = document.querySelector('.journey-grid');
@@ -2742,36 +2742,36 @@ document.addEventListener('DOMContentLoaded', function () {
       <div class="journey-stage">
         <div class="journey-num jn-1">1</div>
         <div class="journey-stage-body">
-          <h3>Begin With Your Story</h3>
-            <p>Book a free 20-minute conversation to begin. You do not need a referral, and there is no pressure to continue.</p>
+            <h3>Start With Your Pain Profile</h3>
+            <p>Book your free 20-minute conversation. We will email you a brief Pain Profile to complete beforehand so you do not have to start your story from the beginning during the call.</p>
         </div>
       </div>
       <div class="journey-stage">
         <div class="journey-num jn-2">2</div>
         <div class="journey-stage-body">
-          <h3>Discover What May Be Getting in the Way</h3>
-          <p>After you book, we email your Pain Profile to complete before the conversation. Together, we explore your daily life, goals, and what may be shaping recovery.</p>
+            <h3>Talk Through the Fuller Picture</h3>
+            <p>During our conversation, we discuss your main concerns, daily life, goals, and what may be making recovery harder. Together, we decide whether a more complete assessment would be useful.</p>
         </div>
       </div>
       <div class="journey-stage">
         <div class="journey-num jn-3">3</div>
         <div class="journey-stage-body">
-          <h3>Build Your Recovery Roadmap</h3>
-          <p>If the next step fits, the $179 Pain Recovery Assessment &amp; Written Plan organizes what we learn into a plan that fits your actual life.</p>
+            <h3>Receive a Written Recovery Plan</h3>
+            <p>If it feels like the right next step, the $179 Pain Recovery Assessment &amp; Written Care Plan™ organizes your pain history, flare patterns, daily impact, recovery needs, and priorities into practical next steps that fit your life.</p>
         </div>
       </div>
       <div class="journey-stage">
         <div class="journey-num jn-4">4</div>
         <div class="journey-stage-body">
-          <h3>Continue the Journey</h3>
-          <p>Ongoing support helps you use the roadmap, build confidence, and keep moving at the pace that works for you.</p>
+            <h3>Continue With Support</h3>
+            <p>Optional follow-up support helps you put your plan into practice, respond to flares, prepare for provider conversations, and adjust your next steps as recovery unfolds.</p>
         </div>
       </div>`;
   }
 
   const howNote = document.querySelector('.how-cta-note p');
   if (howNote) {
-    howNote.textContent = 'Start with a free conversation. No pressure, no referral, and no obligation to continue.';
+    howNote.textContent = 'Start with a free conversation. There is no pressure, no referral requirement, and no obligation to continue.';
   }
 
   const journeySection = document.querySelector('#how');
@@ -2901,6 +2901,8 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('a[href*="calendly.com/paincareathome/20min"]').forEach(function (link) {
     link.textContent = link.closest('nav') ? 'Begin Your Story' : 'Begin Your Story →';
   });
+  const journeyCta = document.querySelector('.how-cta-note .btn');
+  if (journeyCta) journeyCta.textContent = 'Book Your Free Pain Profile →';
 
   if (finalCta) {
     const finalLabel = finalCta.querySelector('.section-label');
