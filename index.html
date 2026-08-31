@@ -2588,14 +2588,24 @@ document.addEventListener('DOMContentLoaded', function () {
   const whyStalls = document.querySelector('#why-stalls');
   const reportPreview = document.querySelector('#preview');
 
-  [scaleStory, whyStalls, reportPreview].forEach(function (section) {
-    if (section) section.remove();
-  });
-
-  if (journeySection && journeySection.parentNode) {
-    [aboutSection, testimonialsSection, faqSection, contactSection, finalCta].forEach(function (section) {
-      if (section) journeySection.parentNode.appendChild(section);
+  const orderedSections = [
+    journeySection,
+    aboutSection,
+    testimonialsSection,
+    reportPreview,
+    scaleStory,
+    whyStalls,
+    faqSection,
+    contactSection,
+    finalCta
+  ].filter(Boolean);
+  const footer = document.querySelector('footer');
+  if (footer && footer.parentNode && orderedSections.length) {
+    const sectionFragment = document.createDocumentFragment();
+    orderedSections.forEach(function (section) {
+      sectionFragment.appendChild(section);
     });
+    footer.parentNode.insertBefore(sectionFragment, footer);
   }
 
   document.querySelectorAll('nav a').forEach(function (link) {
@@ -2657,14 +2667,22 @@ document.addEventListener('DOMContentLoaded', function () {
     node.nodeValue = text;
   });
 
-  if (window.location.hash) {
+  function scrollToRequestedSection() {
+    if (!window.location.hash) return;
     const requestedSection = document.querySelector(window.location.hash);
     if (requestedSection) {
       requestAnimationFrame(function () {
-        requestedSection.scrollIntoView({ block: 'start' });
+        requestAnimationFrame(function () {
+          const nav = document.querySelector('nav');
+          const navHeight = nav ? nav.getBoundingClientRect().height : 0;
+          const sectionTop = requestedSection.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({ top: Math.max(0, sectionTop - navHeight), behavior: 'auto' });
+        });
       });
     }
   }
+  scrollToRequestedSection();
+  window.addEventListener('hashchange', scrollToRequestedSection);
 });
 </script>
 </body>
