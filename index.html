@@ -2703,7 +2703,7 @@ h1, h2, h3, .section-label { text-align: center !important; }
 document.addEventListener('DOMContentLoaded', function () {
   const heroTitle = document.querySelector('.hero h1');
   if (heroTitle) {
-    heroTitle.innerHTML = "Getting help shouldn't be<br><em>this hard.</em>";
+    heroTitle.textContent = "Getting help for chronic pain shouldn’t be this hard.";
   }
 
   const heroChecklist = document.querySelector('.hero-checklist');
@@ -2713,7 +2713,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const heroTagline = document.querySelector('.hero-tagline');
   if (heroTagline) {
-    heroTagline.textContent = "Living with chronic pain is hard. You don't need another provider running tests. You need someone who finally sees the whole picture — and walks it with you.";
+    heroTagline.innerHTML = "When you have seen multiple providers and still do not have a clear recovery plan, it may be time to look at the fuller picture—your pain history, flare patterns, daily life, treatment experiences, and recovery needs.<br><br>Start with a nurse who will listen, help you understand what may need attention, and walk with you through the next steps.";
   }
 
   const providerHeroLink = document.querySelector('.hero-ctas .btn-outline');
