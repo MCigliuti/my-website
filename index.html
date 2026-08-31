@@ -2778,7 +2778,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const aboutSection = document.querySelector('#about');
   const testimonialsSection = document.querySelector('#testimonials');
   const faqSection = document.querySelector('#faq');
-  const contactSection = document.querySelector('#contact');
+  const contactSections = Array.from(document.querySelectorAll('.contact-section'));
+  contactSections.slice(1).forEach(function (section) {
+    section.remove();
+  });
+  const contactSection = contactSections[0];
   const finalCta = document.querySelector('.final-cta');
   const scaleStory = document.querySelector('.scale-story');
   const whyStalls = document.querySelector('#why-stalls');
@@ -2855,16 +2859,7 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>`;
   }
 
-  if (whyStalls) {
-    whyStalls.className = 'section';
-    whyStalls.innerHTML = `
-      <div class="container">
-        <details class="recovery-details">
-          <summary>Why look beyond symptoms alone?</summary>
-          <p>Persistent pain can be influenced by many connected parts of life. Looking at the fuller story helps create support that is more personal, practical, and easier to use alongside your medical care.</p>
-        </details>
-      </div>`;
-  }
+  if (whyStalls) whyStalls.remove();
 
   const orderedSections = [
     journeySection,
@@ -2872,7 +2867,6 @@ document.addEventListener('DOMContentLoaded', function () {
     reportPreview,
     aboutSection,
     testimonialsSection,
-    whyStalls,
     contactSection,
     finalCta
   ].filter(Boolean);
