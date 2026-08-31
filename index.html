@@ -2480,40 +2480,36 @@ h1, h2, h3, .section-label { text-align: center !important; }
 document.addEventListener('DOMContentLoaded', function () {
   const heroTitle = document.querySelector('.hero h1');
   if (heroTitle) {
-    heroTitle.innerHTML = 'Start With Your Story.<br><em>Find Your Next Step.</em>';
+    heroTitle.innerHTML = "Living with chronic pain is hard.<br><em>Getting help shouldn't be.</em>";
   }
 
   const heroChecklist = document.querySelector('.hero-checklist');
   if (heroChecklist) {
-    heroChecklist.innerHTML = `
-      <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--clay,#8A6D5A);margin-bottom:10px;">Your first steps</p>
-      <div style="display:flex;flex-direction:column;gap:8px;">
-        <div class="journey-check-item">Tell us what living with pain has been like for you</div>
-        <div class="journey-check-item">Complete the Pain Profile sent by email after you book</div>
-        <div class="journey-check-item">Meet with a clinician for a free 20–30-minute conversation</div>
-        <div class="journey-check-item">Choose the recovery support that fits your needs</div>
-      </div>`;
+    heroChecklist.remove();
   }
 
   const heroTagline = document.querySelector('.hero-tagline');
   if (heroTagline) {
-    heroTagline.textContent = 'Start with a free Pain Profile. After you book, complete it by email before your 20–30-minute phone or video consultation. We listen to your story, review your results, and guide you toward practical recovery support.';
+    heroTagline.textContent = "You don't need another provider running tests. You need someone who finally sees the whole picture — and walks it with you.";
   }
 
   const providerHeroLink = document.querySelector('.hero-ctas .btn-outline');
   if (providerHeroLink) providerHeroLink.remove();
 
+  const heroCta = document.querySelector('.hero-ctas .btn');
+  if (heroCta) heroCta.textContent = 'Begin Your Story →';
+
   const heroReassurance = document.querySelector('.hero .cta-reassure');
   if (heroReassurance) {
-    heroReassurance.innerHTML = 'Free Pain Profile · Free 20–30 min consultation · Phone or video · Adults 18+';
+    heroReassurance.innerHTML = '20 minutes · Always free · No pressure · Phone or video';
   }
 
   const journeyHeader = document.querySelector('.journey-header');
   if (journeyHeader) {
     const heading = journeyHeader.querySelector('h2');
     const intro = journeyHeader.querySelector('p');
-    if (heading) heading.textContent = 'Your recovery journey, step by step';
-    if (intro) intro.textContent = 'Your story and Pain Profile are the starting point. After you book, complete the Pain Profile by email before a free 20–30-minute conversation. If you choose the full paid assessment, the written plan is not the end—it becomes the foundation for personalized guidance through your recovery program.';
+    if (heading) heading.textContent = 'Your Recovery Journey';
+    if (intro) intro.textContent = "Recovery isn't a checklist. Here's what the process actually looks like.";
   }
 
   const journeyGrid = document.querySelector('.journey-grid');
@@ -2521,57 +2517,57 @@ document.addEventListener('DOMContentLoaded', function () {
     journeyGrid.innerHTML = `
       <div class="journey-step">
         <div class="journey-num jn-1">1</div>
-        <div class="journey-pill">Start free</div>
-        <h3>Start With Your Pain Story</h3>
-        <p>Book your free Pain Profile consultation and begin with what has been happening, what feels hardest, and what you want help understanding.</p>
+        <div class="journey-pill">Begin with your story</div>
+        <h3>Begin With Your Story</h3>
+        <p>Book your free Pain Profile. We start with what living with pain has been like, what feels hardest, and what you want help understanding.</p>
         <div class="hiw-outcomes">
-          <p class="outcome-label">You begin with</p>
+          <p class="outcome-label">You can expect</p>
           <ul>
             <li><span>✓</span>A place to be heard</li>
-            <li><span>✓</span>Your story is the starting point</li>
-            <li><span>✓</span>No referral or commitment</li>
+            <li><span>✓</span>Your story comes first</li>
+            <li><span>✓</span>No pressure or referral</li>
           </ul>
         </div>
       </div>
       <div class="journey-step">
         <div class="journey-num jn-2">2</div>
-        <div class="journey-pill">Your Pain Profile</div>
-        <h3>Complete Your Pain Profile</h3>
-        <p>After you book, we will email your Pain Profile for you to complete before the conversation. It helps us understand more about your pain experience so we can discuss it together.</p>
+        <div class="journey-pill">Explore together</div>
+        <h3>Explore What’s Going On</h3>
+        <p>After you book, we email your Pain Profile to complete before a free 20–30-minute phone or video conversation. Together, we look at your story and what may be affecting recovery.</p>
         <div class="hiw-outcomes">
-          <p class="outcome-label">This helps us</p>
+          <p class="outcome-label">You bring</p>
           <ul>
-            <li><span>✓</span>See more than pain intensity</li>
-            <li><span>✓</span>Notice what affects recovery</li>
-            <li><span>✓</span>Prepare for a useful conversation</li>
+            <li><span>✓</span>Your completed Pain Profile</li>
+            <li><span>✓</span>Questions you want answered</li>
+            <li><span>✓</span>What you want to change</li>
           </ul>
         </div>
       </div>
       <div class="journey-step">
         <div class="journey-num jn-3">3</div>
-        <div class="journey-pill">Free · 20–30 minutes</div>
-        <h3>Meet With a Clinician</h3>
-        <p>By phone or video, we review your story and Pain Profile, answer questions, and clarify what may be making recovery harder.</p>
+        <div class="journey-pill">Build your roadmap</div>
+        <h3>Build Your Recovery Roadmap</h3>
+        <p>If the next step fits, the $179 Pain Recovery Assessment &amp; Written Plan turns what we learn into personalized priorities, recommendations, and a written roadmap.</p>
         <div class="hiw-outcomes">
-          <p class="outcome-label">You leave with</p>
+          <p class="outcome-label">You receive</p>
           <ul>
-            <li><span>✓</span>A fuller recovery picture</li>
-            <li><span>✓</span>Clarity about your next step</li>
-            <li><span>✓</span>Guidance without pressure</li>
+            <li><span>✓</span>Recommendations for your life</li>
+            <li><span>✓</span>A written next-step plan</li>
+            <li><span>✓</span>Questions for your care team</li>
           </ul>
         </div>
       </div>
       <div class="journey-step">
         <div class="journey-num jn-4">4</div>
-        <div class="journey-pill">Personalized support</div>
-        <h3>Move Into Guided Recovery</h3>
-        <p>If you choose to continue, the $179 Pain Recovery Assessment &amp; Written Plan turns your Pain Profile into personalized priorities and recommendations that guide your recovery program and continued support.</p>
+        <div class="journey-pill">Continue the journey</div>
+        <h3>Keep Moving Forward</h3>
+        <p>Your written roadmap is the foundation—not the finish line—for guided pain recovery support. Follow-up helps you adjust, build confidence, and keep moving at your pace.</p>
         <div class="hiw-outcomes">
-          <p class="outcome-label">You can receive</p>
+          <p class="outcome-label">You can build</p>
           <ul>
-            <li><span>✓</span>Solutions matched to your needs</li>
-            <li><span>✓</span>A written recovery roadmap</li>
-            <li><span>✓</span>Guidance as you move forward</li>
+            <li><span>✓</span>Support through flares</li>
+            <li><span>✓</span>Progress reviews and adjustments</li>
+            <li><span>✓</span>Ongoing guidance, your pace</li>
           </ul>
         </div>
       </div>`;
@@ -2579,7 +2575,50 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const howNote = document.querySelector('.how-cta-note p');
   if (howNote) {
-    howNote.textContent = 'Start with the free Pain Profile. After you request it, we will email it to complete before your 20–30-minute conversation. If you choose to continue, the $179 Pain Recovery Assessment & Written Plan becomes the foundation for personalized guidance through your recovery program.';
+    howNote.textContent = 'Start with a free conversation. No pressure, no referral, and no obligation to continue.';
+  }
+
+  const journeySection = document.querySelector('#how');
+  const aboutSection = document.querySelector('#about');
+  const testimonialsSection = document.querySelector('#testimonials');
+  const faqSection = document.querySelector('#faq');
+  const contactSection = document.querySelector('#contact');
+  const finalCta = document.querySelector('.final-cta');
+  const scaleStory = document.querySelector('.scale-story');
+  const whyStalls = document.querySelector('#why-stalls');
+  const reportPreview = document.querySelector('#preview');
+
+  [scaleStory, whyStalls, reportPreview].forEach(function (section) {
+    if (section) section.remove();
+  });
+
+  if (journeySection && journeySection.parentNode) {
+    [aboutSection, testimonialsSection, faqSection, contactSection, finalCta].forEach(function (section) {
+      if (section) journeySection.parentNode.appendChild(section);
+    });
+  }
+
+  document.querySelectorAll('nav a').forEach(function (link) {
+    if (link.textContent.trim() === 'How It Works') {
+      link.textContent = 'Your Journey';
+      link.setAttribute('href', '#how');
+    }
+  });
+
+  document.querySelectorAll('a[href*="calendly.com/paincareathome/20min"]').forEach(function (link) {
+    link.textContent = link.closest('nav') ? 'Begin Your Story' : 'Begin Your Story →';
+  });
+
+  if (finalCta) {
+    const finalLabel = finalCta.querySelector('.section-label');
+    const finalHeading = finalCta.querySelector('h2');
+    const finalParagraphs = finalCta.querySelectorAll('.container > p:not(.cta-reassure)');
+    if (finalLabel) finalLabel.textContent = 'Your next step';
+    if (finalHeading) finalHeading.textContent = 'Ready to Tell Your Story?';
+    if (finalParagraphs[0]) {
+      finalParagraphs[0].textContent = 'No pressure. No judgment. Just a chance to finally be heard.';
+    }
+    if (finalParagraphs[1]) finalParagraphs[1].remove();
   }
 
   const faqQuestions = Array.from(document.querySelectorAll('.faq-q'));
