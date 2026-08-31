@@ -2790,6 +2790,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let exploreSection = scaleStory;
 
   if (faqSection) faqSection.remove();
+  if (finalCta) finalCta.remove();
 
   if (scaleStory) {
     scaleStory.id = 'explore';
@@ -2868,7 +2869,6 @@ document.addEventListener('DOMContentLoaded', function () {
     aboutSection,
     testimonialsSection,
     contactSection,
-    finalCta
   ].filter(Boolean);
   const footer = document.querySelector('footer');
   if (footer && footer.parentNode && orderedSections.length) {
