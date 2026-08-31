@@ -2743,7 +2743,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="journey-num jn-1">1</div>
         <div class="journey-stage-body">
           <h3>Begin With Your Story</h3>
-          <p>A free 20-minute conversation. No forms to fill out alone, no pressure—just a chance to tell someone what this has really been like.</p>
+            <p>Book a free 20-minute conversation to begin. You do not need a referral, and there is no pressure to continue.</p>
         </div>
       </div>
       <div class="journey-stage">
@@ -2784,6 +2784,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const whyStalls = document.querySelector('#why-stalls');
   const reportPreview = document.querySelector('#preview');
   let exploreSection = scaleStory;
+
+  if (faqSection) faqSection.remove();
 
   if (scaleStory) {
     scaleStory.id = 'explore';
@@ -2871,7 +2873,6 @@ document.addEventListener('DOMContentLoaded', function () {
     aboutSection,
     testimonialsSection,
     whyStalls,
-    faqSection,
     contactSection,
     finalCta
   ].filter(Boolean);
@@ -2889,6 +2890,12 @@ document.addEventListener('DOMContentLoaded', function () {
       link.textContent = 'Your Journey';
       link.setAttribute('href', '#how');
     }
+  });
+
+  document.querySelectorAll('a[href="#faq"]').forEach(function (link) {
+    const listItem = link.closest('li');
+    if (listItem) listItem.remove();
+    else link.remove();
   });
 
   document.querySelectorAll('a[href*="calendly.com/paincareathome/20min"]').forEach(function (link) {
