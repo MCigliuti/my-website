@@ -1625,6 +1625,85 @@ img, svg { max-width: 100%; height: auto; }
 .svc-alt-link { text-align: center !important; }
 .cta-reassure { text-align: center !important; }
 </style>
+<style id="patient-journey-clarity">
+/* One patient pathway: story → screenings → conversation → next step */
+.hero-left { padding-top:48px; padding-bottom:48px; }
+.hero h1 {
+  font-size:clamp(2.45rem,3.5vw,3.35rem) !important;
+  line-height:1.08;
+  margin-bottom:4px;
+}
+.hero-eyebrow { margin-bottom:16px; }
+.hero-tagline { font-size:0.96rem; line-height:1.6; margin-bottom:16px; }
+.hero-ctas { margin-bottom: 14px; }
+.hero-checklist { max-width:500px; margin-top:14px !important; margin-bottom:14px !important; padding:14px 18px !important; }
+.hero-checklist .journey-check-item {
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  font-size:0.87rem;
+  color:var(--text-mid,#5D535A);
+  line-height:1.45;
+}
+.hero-checklist .journey-check-item::before {
+  content:'✓';
+  flex-shrink:0;
+  color:var(--clay,#8A6D5A);
+  font-weight:700;
+}
+.journey-grid { grid-template-columns:repeat(4,1fr); gap:14px; }
+.journey-step { min-width:0; }
+.journey-step p { max-width:260px; margin-left:auto; margin-right:auto; }
+.journey-step .hiw-outcomes { min-height:108px; }
+.journey-pill {
+  display:inline-block;
+  background:rgba(89,69,87,0.10);
+  color:var(--mauve-dk,#6B4C60);
+  font-size:0.72rem;
+  font-weight:700;
+  letter-spacing:0.07em;
+  text-transform:uppercase;
+  padding:4px 10px;
+  border-radius:20px;
+  margin-bottom:10px;
+}
+.journey-step .outcome-label {
+  font-size:0.7rem;
+  font-weight:700;
+  letter-spacing:0.07em;
+  text-transform:uppercase;
+  color:var(--clay,#8A6D5A);
+  margin-bottom:8px;
+}
+.journey-step .hiw-outcomes ul {
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+.journey-step .hiw-outcomes li {
+  font-size:0.82rem;
+  color:var(--text-mid,#5D535A);
+  line-height:1.5;
+  display:flex;
+  gap:8px;
+}
+.journey-step .hiw-outcomes li span {
+  flex-shrink:0;
+  color:var(--clay,#8A6D5A);
+}
+@media (max-width:900px) {
+  .journey-grid { grid-template-columns:repeat(2,1fr); row-gap:28px; }
+}
+@media (max-width:600px) {
+  .hero-left { padding-top:32px; padding-bottom:28px; }
+  .hero h1 { font-size:clamp(2.2rem,11vw,3rem) !important; }
+  .journey-grid { grid-template-columns:1fr; }
+  .journey-step p { max-width: none; }
+}
+</style>
 </head>
 <body>
 <!-- ANN BAR -->
@@ -2397,5 +2476,129 @@ h1, h2, h3, .section-label { text-align: center !important; }
   .journey-pill { white-space:normal !important; max-width:100% !important; box-sizing:border-box !important; }
 }
 </style>
+<script id="patient-journey-clarity-script">
+document.addEventListener('DOMContentLoaded', function () {
+  const heroTitle = document.querySelector('.hero h1');
+  if (heroTitle) {
+    heroTitle.innerHTML = 'Start With Your Story.<br><em>Find Your Next Step.</em>';
+  }
+
+  const heroChecklist = document.querySelector('.hero-checklist');
+  if (heroChecklist) {
+    heroChecklist.innerHTML = `
+      <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--clay,#8A6D5A);margin-bottom:10px;">Your first steps</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div class="journey-check-item">Tell us what living with pain has been like for you</div>
+        <div class="journey-check-item">Receive brief Pain Complexity screenings by email after you book</div>
+        <div class="journey-check-item">Complete them before your free 20–30-minute conversation</div>
+        <div class="journey-check-item">Meet with a clinician who helps guide your next step</div>
+      </div>`;
+  }
+
+  const heroTagline = document.querySelector('.hero-tagline');
+  if (heroTagline) {
+    heroTagline.textContent = 'Your first step is free: book a 20–30-minute phone or video conversation. We will listen to your story, review your screening responses, and help you decide what support fits next.';
+  }
+
+  const providerHeroLink = document.querySelector('.hero-ctas .btn-outline');
+  if (providerHeroLink) providerHeroLink.remove();
+
+  const heroReassurance = document.querySelector('.hero .cta-reassure');
+  if (heroReassurance) {
+    heroReassurance.innerHTML = 'Free 20–30 min · Screenings sent after booking · Phone or video · Adults 18+';
+  }
+
+  const journeyHeader = document.querySelector('.journey-header');
+  if (journeyHeader) {
+    const heading = journeyHeader.querySelector('h2');
+    const intro = journeyHeader.querySelector('p');
+    if (heading) heading.textContent = 'Your recovery journey, step by step';
+    if (intro) intro.textContent = 'First, your story is heard. After you request the free Pain Profile, we email brief Pain Complexity screenings for you to complete before your 20–30-minute conversation. Together, we review what matters and choose the next step that fits.';
+  }
+
+  const journeyGrid = document.querySelector('.journey-grid');
+  if (journeyGrid) {
+    journeyGrid.innerHTML = `
+      <div class="journey-step">
+        <div class="journey-num jn-1">1</div>
+        <div class="journey-pill">Start free</div>
+        <h3>Share Your Story</h3>
+        <p>Book the free Pain Profile and begin with what has been happening, what feels hardest, and what you want help understanding.</p>
+        <div class="hiw-outcomes">
+          <p class="outcome-label">You begin with</p>
+          <ul>
+            <li><span>✓</span>A place to be heard</li>
+            <li><span>✓</span>Your main concern identified</li>
+            <li><span>✓</span>No referral or commitment</li>
+          </ul>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-num jn-2">2</div>
+        <div class="journey-pill">Brief screenings</div>
+        <h3>Complete Your Screenings</h3>
+        <p>After you book, brief Pain Complexity screenings and a few additional questions are emailed to you to complete before the conversation.</p>
+        <div class="hiw-outcomes">
+          <p class="outcome-label">This helps us</p>
+          <ul>
+            <li><span>✓</span>See more than pain intensity</li>
+            <li><span>✓</span>Notice recovery barriers</li>
+            <li><span>✓</span>Prepare for a useful conversation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-num jn-3">3</div>
+        <div class="journey-pill">Free · 20–30 minutes</div>
+        <h3>Meet With a Clinician</h3>
+        <p>By phone or video, we review your story and screening responses, answer questions, and clarify what may be making recovery harder.</p>
+        <div class="hiw-outcomes">
+          <p class="outcome-label">You leave with</p>
+          <ul>
+            <li><span>✓</span>A fuller recovery picture</li>
+            <li><span>✓</span>Clarity about what to do next</li>
+            <li><span>✓</span>Guidance without pressure</li>
+          </ul>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-num jn-4">4</div>
+        <div class="journey-pill">Support that fits</div>
+        <h3>Continue Your Recovery</h3>
+        <p>If you want a complete Pain Profile and written plan, the $179 introductory Assessment &amp; Care Plan is the next step. Follow-up support is available after that.</p>
+        <div class="hiw-outcomes">
+          <p class="outcome-label">You can receive</p>
+          <ul>
+            <li><span>✓</span>Personalized recommendations</li>
+            <li><span>✓</span>A written plan and priorities</li>
+            <li><span>✓</span>Continued support when ready</li>
+          </ul>
+        </div>
+      </div>`;
+  }
+
+  const howNote = document.querySelector('.how-cta-note p');
+  if (howNote) {
+    howNote.textContent = 'Start with the free Pain Profile. After you request it, we will email brief screenings to complete before your 20–30-minute conversation. That conversation helps you decide whether the $179 complete Pain Profile and written plan is right for you.';
+  }
+
+  const faqQuestions = Array.from(document.querySelectorAll('.faq-q'));
+  const freeProfileQuestion = faqQuestions.find(function (question) {
+    return question.textContent.trim() === 'What is the free Pain Profile?';
+  });
+  if (freeProfileQuestion && freeProfileQuestion.nextElementSibling) {
+    freeProfileQuestion.nextElementSibling.textContent = 'After you book, you receive brief Pain Complexity screenings and additional questions by email. You complete them before a free 20–30-minute phone or video conversation, where a clinician listens to your story, reviews what matters, and helps guide your next step. It is designed for adults 18+ living with pain that has lasted three months or longer. No commitment required.';
+  }
+
+  if (window.location.hash) {
+    const requestedSection = document.querySelector(window.location.hash);
+    if (requestedSection) {
+      requestAnimationFrame(function () {
+        requestedSection.scrollIntoView({ block: 'start' });
+      });
+    }
+  }
+});
+</script>
 </body>
 </html>
