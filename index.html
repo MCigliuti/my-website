@@ -2473,11 +2473,237 @@ h1, h2, h3, .section-label { text-align: center !important; }
   .journey-pill { white-space:normal !important; max-width:100% !important; box-sizing:border-box !important; }
 }
 </style>
+<style id="interactive-patient-journey">
+.hero h1 {
+  max-width: 500px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  font-size: clamp(2.45rem, 4vw, 3.8rem) !important;
+}
+.journey-path {
+  position: relative;
+  max-width: 760px;
+  margin: 42px auto 0;
+}
+.journey-path::before {
+  content: "";
+  position: absolute;
+  top: 32px;
+  bottom: 32px;
+  left: 31px;
+  width: 2px;
+  background: linear-gradient(var(--mauve-mid), var(--medium-blue), var(--warm-taupe), var(--medium-sage));
+  opacity: .45;
+}
+.journey-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 22px;
+  align-items: start;
+  margin: 0 0 18px;
+}
+.journey-stage .journey-num {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+.journey-stage-body {
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(89,69,87,.1);
+  border-radius: 18px;
+  padding: 22px 24px;
+  text-align: left;
+  box-shadow: 0 8px 28px rgba(70,55,67,.06);
+}
+.journey-stage-body h3 {
+  text-align: left !important;
+  margin: 0 0 7px;
+  font-size: 1.2rem;
+}
+.journey-stage-body p {
+  margin: 0;
+  line-height: 1.65;
+}
+.explore-section {
+  background: var(--soft-cream);
+}
+.explore-heading {
+  max-width: 700px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+.explore-heading h2 {
+  margin-bottom: 10px;
+}
+.explore-heading p {
+  color: var(--text-soft);
+}
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.flip-card {
+  min-height: 190px;
+  perspective: 1000px;
+}
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 190px;
+  padding: 0;
+  border: 0;
+  border-radius: 18px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform .55s ease;
+  font: inherit;
+}
+.flip-card.flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  border-radius: 18px;
+  border: 1px solid rgba(89,69,87,.12);
+  backface-visibility: hidden;
+  box-shadow: 0 8px 26px rgba(70,55,67,.08);
+}
+.flip-front {
+  background: rgba(255,255,255,.92);
+}
+.flip-front h3 {
+  margin: 0 0 14px;
+  font-size: 1.08rem;
+}
+.flip-back {
+  transform: rotateY(180deg);
+  background: var(--deep-mauve);
+  color: #fff;
+}
+.flip-back p {
+  margin: 0;
+  color: rgba(255,255,255,.94);
+  font-size: .88rem;
+  line-height: 1.65;
+}
+.tap-hint {
+  color: var(--mauve-mid);
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.flip-inner:focus-visible {
+  outline: 3px solid var(--medium-blue);
+  outline-offset: 4px;
+}
+.support-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+}
+.support-summary-card {
+  padding: 24px;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid rgba(89,69,87,.1);
+}
+.support-summary-card h3 {
+  font-size: 1.08rem;
+  margin-bottom: 8px;
+}
+.support-summary-card p {
+  font-size: .86rem;
+  line-height: 1.65;
+}
+.recovery-details {
+  max-width: 780px;
+  margin: 0 auto;
+  border: 1px solid rgba(89,69,87,.12);
+  border-radius: 18px;
+  background: rgba(255,255,255,.78);
+  overflow: hidden;
+}
+.recovery-details summary {
+  padding: 20px 24px;
+  cursor: pointer;
+  color: var(--deep-mauve);
+  font-family: 'Lora', serif;
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+.recovery-details p {
+  padding: 0 24px 22px;
+  margin: 0;
+  color: var(--text-mid);
+}
+.faq-item .faq-q {
+  margin-bottom: 0;
+  cursor: pointer;
+}
+.faq-item .faq-a {
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height .35s ease, opacity .25s ease, margin-top .25s ease;
+}
+.faq-item.is-open .faq-q::after {
+  content: "−";
+}
+.faq-item.is-open .faq-a {
+  max-height: 420px;
+  margin-top: 12px;
+  opacity: 1;
+}
+.faq-item .faq-q:focus-visible {
+  outline: 3px solid var(--medium-blue);
+  outline-offset: 5px;
+  border-radius: 4px;
+}
+@media (max-width: 800px) {
+  .explore-grid,
+  .support-summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: clamp(2.1rem, 10vw, 2.8rem) !important;
+  }
+  .journey-stage {
+    grid-template-columns: 52px 1fr;
+    gap: 12px;
+  }
+  .journey-path::before {
+    left: 25px;
+  }
+  .journey-stage-body {
+    padding: 18px;
+  }
+  .explore-grid,
+  .support-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 <script id="patient-journey-clarity-script">
 document.addEventListener('DOMContentLoaded', function () {
   const heroTitle = document.querySelector('.hero h1');
   if (heroTitle) {
-    heroTitle.innerHTML = "Living with chronic pain is hard.<br><em>Getting help shouldn't be.</em>";
+    heroTitle.innerHTML = "Getting help shouldn't be<br><em>this hard.</em>";
   }
 
   const heroChecklist = document.querySelector('.hero-checklist');
@@ -2487,7 +2713,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const heroTagline = document.querySelector('.hero-tagline');
   if (heroTagline) {
-    heroTagline.textContent = "You don't need another provider running tests. You need someone who finally sees the whole picture — and walks it with you.";
+    heroTagline.textContent = "Living with chronic pain is hard. You don't need another provider running tests. You need someone who finally sees the whole picture — and walks it with you.";
   }
 
   const providerHeroLink = document.querySelector('.hero-ctas .btn-outline');
@@ -2511,57 +2737,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const journeyGrid = document.querySelector('.journey-grid');
   if (journeyGrid) {
+    journeyGrid.className = 'journey-path';
     journeyGrid.innerHTML = `
-      <div class="journey-step">
+      <div class="journey-stage">
         <div class="journey-num jn-1">1</div>
-        <h3>Begin With Your Story</h3>
-        <p>Book your free Pain Profile. We start with what living with pain has been like, what feels hardest, and what you want help understanding.</p>
-        <div class="hiw-outcomes">
-          <p class="outcome-label">You can expect</p>
-          <ul>
-            <li><span>✓</span>A place to be heard</li>
-            <li><span>✓</span>Your story comes first</li>
-            <li><span>✓</span>No pressure or referral</li>
-          </ul>
+        <div class="journey-stage-body">
+          <h3>Begin With Your Story</h3>
+          <p>A free 20-minute conversation. No forms to fill out alone, no pressure—just a chance to tell someone what this has really been like.</p>
         </div>
       </div>
-      <div class="journey-step">
+      <div class="journey-stage">
         <div class="journey-num jn-2">2</div>
-        <h3>Explore What’s Going On</h3>
-        <p>After you book, we email your Pain Profile to complete before a free 20–30-minute phone or video conversation. Together, we look at your story and what may be affecting recovery.</p>
-        <div class="hiw-outcomes">
-          <p class="outcome-label">You bring</p>
-          <ul>
-            <li><span>✓</span>Your completed Pain Profile</li>
-            <li><span>✓</span>Questions you want answered</li>
-            <li><span>✓</span>What you want to change</li>
-          </ul>
+        <div class="journey-stage-body">
+          <h3>Discover What May Be Getting in the Way</h3>
+          <p>After you book, we email your Pain Profile to complete before the conversation. Together, we explore your daily life, goals, and what may be shaping recovery.</p>
         </div>
       </div>
-      <div class="journey-step">
+      <div class="journey-stage">
         <div class="journey-num jn-3">3</div>
-        <h3>Build Your Recovery Roadmap</h3>
-        <p>If the next step fits, the $179 Pain Recovery Assessment &amp; Written Plan turns what we learn into personalized priorities, recommendations, and a written roadmap.</p>
-        <div class="hiw-outcomes">
-          <p class="outcome-label">You receive</p>
-          <ul>
-            <li><span>✓</span>Recommendations for your life</li>
-            <li><span>✓</span>A written next-step plan</li>
-            <li><span>✓</span>Questions for your care team</li>
-          </ul>
+        <div class="journey-stage-body">
+          <h3>Build Your Recovery Roadmap</h3>
+          <p>If the next step fits, the $179 Pain Recovery Assessment &amp; Written Plan organizes what we learn into a plan that fits your actual life.</p>
         </div>
       </div>
-      <div class="journey-step">
+      <div class="journey-stage">
         <div class="journey-num jn-4">4</div>
-        <h3>Keep Moving Forward</h3>
-        <p>Your written roadmap is the foundation—not the finish line—for guided pain recovery support. Follow-up helps you adjust, build confidence, and keep moving at your pace.</p>
-        <div class="hiw-outcomes">
-          <p class="outcome-label">You can build</p>
-          <ul>
-            <li><span>✓</span>Support through flares</li>
-            <li><span>✓</span>Progress reviews and adjustments</li>
-            <li><span>✓</span>Ongoing guidance, your pace</li>
-          </ul>
+        <div class="journey-stage-body">
+          <h3>Continue the Journey</h3>
+          <p>Ongoing support helps you use the roadmap, build confidence, and keep moving at the pace that works for you.</p>
         </div>
       </div>`;
   }
@@ -2580,13 +2783,93 @@ document.addEventListener('DOMContentLoaded', function () {
   const scaleStory = document.querySelector('.scale-story');
   const whyStalls = document.querySelector('#why-stalls');
   const reportPreview = document.querySelector('#preview');
+  let exploreSection = scaleStory;
+
+  if (scaleStory) {
+    scaleStory.id = 'explore';
+    scaleStory.className = 'section explore-section';
+    scaleStory.innerHTML = `
+      <div class="container">
+        <div class="explore-heading">
+          <div class="section-label">Explore the bigger picture</div>
+          <h2>What Might Be Shaping Your Pain?</h2>
+          <p>Tap a card to explore. This is food for thought—not a diagnosis.</p>
+        </div>
+        <div class="explore-grid">
+          <div class="flip-card" data-flip>
+            <button class="flip-inner" type="button" aria-expanded="false" aria-label="Explore your nervous system">
+              <span class="flip-face flip-front"><h3>Your Nervous System</h3><span class="tap-hint">Tap to explore →</span></span>
+              <span class="flip-face flip-back"><p>Pain can also reflect how sensitized the nervous system has become over time. That is not “in your head.” It is biology, and it can shift.</p></span>
+            </button>
+          </div>
+          <div class="flip-card" data-flip>
+            <button class="flip-inner" type="button" aria-expanded="false" aria-label="Explore your pain patterns">
+              <span class="flip-face flip-front"><h3>Your Pain Patterns</h3><span class="tap-hint">Tap to explore →</span></span>
+              <span class="flip-face flip-back"><p>Where pain appears, how it changes, and what makes it better or worse can reveal more than one intensity number.</p></span>
+            </button>
+          </div>
+          <div class="flip-card" data-flip>
+            <button class="flip-inner" type="button" aria-expanded="false" aria-label="Explore sleep and mood">
+              <span class="flip-face flip-front"><h3>Sleep &amp; Mood</h3><span class="tap-hint">Tap to explore →</span></span>
+              <span class="flip-face flip-back"><p>Pain can disrupt sleep, and disrupted sleep can increase pain sensitivity. Looking at both can help clarify the recovery picture.</p></span>
+            </button>
+          </div>
+          <div class="flip-card" data-flip>
+            <button class="flip-inner" type="button" aria-expanded="false" aria-label="Explore your healthcare story">
+              <span class="flip-face flip-front"><h3>Your Healthcare Story</h3><span class="tap-hint">Tap to explore →</span></span>
+              <span class="flip-face flip-back"><p>Being dismissed or disbelieved leaves a mark. Past care experiences can shape how safe it feels to try again.</p></span>
+            </button>
+          </div>
+          <div class="flip-card" data-flip>
+            <button class="flip-inner" type="button" aria-expanded="false" aria-label="Explore daily function">
+              <span class="flip-face flip-front"><h3>Daily Function</h3><span class="tap-hint">Tap to explore →</span></span>
+              <span class="flip-face flip-back"><p>Work, movement, relationships, and everyday activities all matter. Recovery support should fit the life you are actually living.</p></span>
+            </button>
+          </div>
+          <div class="flip-card" data-flip>
+            <button class="flip-inner" type="button" aria-expanded="false" aria-label="Explore your support system">
+              <span class="flip-face flip-front"><h3>Your Support System</h3><span class="tap-hint">Tap to explore →</span></span>
+              <span class="flip-face flip-back"><p>Recovery rarely happens alone. The people around you—and how much they understand—can affect how supported you feel.</p></span>
+            </button>
+          </div>
+        </div>
+      </div>`;
+    exploreSection = scaleStory;
+  }
+
+  if (reportPreview) {
+    reportPreview.innerHTML = `
+      <div class="container">
+        <div class="report-preview-header">
+          <div class="section-label">Choose your next step</div>
+          <h2>Support that grows with your journey.</h2>
+          <p>Begin free. Continue only if the next level of support feels right for you.</p>
+        </div>
+        <div class="support-summary-grid">
+          <article class="support-summary-card"><h3>Free Pain Profile</h3><p>Your starting conversation and a clearer sense of what may help next.</p></article>
+          <article class="support-summary-card"><h3>$179 Recovery Roadmap</h3><p>A deeper assessment with personalized priorities, recommendations, and a written plan.</p></article>
+          <article class="support-summary-card"><h3>Ongoing Support</h3><p>Guidance to use the roadmap, adjust through flares, and keep moving at your pace.</p></article>
+        </div>
+      </div>`;
+  }
+
+  if (whyStalls) {
+    whyStalls.className = 'section';
+    whyStalls.innerHTML = `
+      <div class="container">
+        <details class="recovery-details">
+          <summary>Why look beyond symptoms alone?</summary>
+          <p>Persistent pain can be influenced by many connected parts of life. Looking at the fuller story helps create support that is more personal, practical, and easier to use alongside your medical care.</p>
+        </details>
+      </div>`;
+  }
 
   const orderedSections = [
     journeySection,
+    exploreSection,
+    reportPreview,
     aboutSection,
     testimonialsSection,
-    reportPreview,
-    scaleStory,
     whyStalls,
     faqSection,
     contactSection,
@@ -2642,6 +2925,60 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  const statesQuestion = faqQuestions.find(function (question) {
+    return question.textContent.trim() === 'What states do you serve?';
+  });
+  if (statesQuestion) {
+    statesQuestion.textContent = 'Where are services available?';
+    if (statesQuestion.nextElementSibling) {
+      statesQuestion.nextElementSibling.textContent = 'Telehealth services are available across 40+ states, including all compact states. Services are available in English or Spanish at the same pricing. You can confirm availability before booking.';
+    }
+  }
+
+  const faqHeading = faqSection ? faqSection.querySelector('h2') : null;
+  const faqLabel = faqSection ? faqSection.querySelector('.section-label') : null;
+  if (faqHeading) faqHeading.textContent = 'A Few Practical Questions';
+  if (faqLabel) faqLabel.textContent = 'Before you begin';
+
+  const keptFaqTitles = new Set([
+    'What is the free Pain Profile?',
+    'What does the $179 Pain Recovery Assessment & Written Plan include?',
+    'Is this medical treatment?',
+    'Where are services available?',
+    'Do I need a referral to book?'
+  ]);
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    const question = item.querySelector('.faq-q');
+    if (!question || !keptFaqTitles.has(question.textContent.trim())) item.remove();
+  });
+
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    const question = item.querySelector('.faq-q');
+    if (!question) return;
+    question.setAttribute('role', 'button');
+    question.setAttribute('tabindex', '0');
+    question.setAttribute('aria-expanded', 'false');
+    function toggleFaq() {
+      const willOpen = !item.classList.contains('is-open');
+      document.querySelectorAll('.faq-item.is-open').forEach(function (openItem) {
+        openItem.classList.remove('is-open');
+        const openQuestion = openItem.querySelector('.faq-q');
+        if (openQuestion) openQuestion.setAttribute('aria-expanded', 'false');
+      });
+      if (willOpen) {
+        item.classList.add('is-open');
+        question.setAttribute('aria-expanded', 'true');
+      }
+    }
+    question.addEventListener('click', toggleFaq);
+    question.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleFaq();
+      }
+    });
+  });
+
   const textReplacements = [
     ['Pain Recovery Assessment & Care Plan™', 'Pain Recovery Assessment & Written Plan™'],
     ['Assessment & Care Plan', 'Pain Recovery Assessment & Written Plan'],
@@ -2660,6 +2997,15 @@ document.addEventListener('DOMContentLoaded', function () {
     node.nodeValue = text;
   });
 
+  document.querySelectorAll('[data-flip]').forEach(function (card) {
+    const button = card.querySelector('button');
+    if (!button) return;
+    button.addEventListener('click', function () {
+      const isFlipped = card.classList.toggle('flipped');
+      button.setAttribute('aria-expanded', String(isFlipped));
+    });
+  });
+
   function scrollToRequestedSection() {
     if (!window.location.hash) return;
     const requestedSection = document.querySelector(window.location.hash);
@@ -2669,7 +3015,13 @@ document.addEventListener('DOMContentLoaded', function () {
           const nav = document.querySelector('nav');
           const navHeight = nav ? nav.getBoundingClientRect().height : 0;
           const sectionTop = requestedSection.getBoundingClientRect().top + window.scrollY;
-          window.scrollTo({ top: Math.max(0, sectionTop - navHeight), behavior: 'auto' });
+          const root = document.documentElement;
+          const previousScrollBehavior = root.style.scrollBehavior;
+          root.style.scrollBehavior = 'auto';
+          window.scrollTo(0, Math.max(0, sectionTop - navHeight));
+          requestAnimationFrame(function () {
+            root.style.scrollBehavior = previousScrollBehavior;
+          });
         });
       });
     }
