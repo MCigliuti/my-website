@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Pain Care At Home™ — Free Pain Profile for Chronic Pain Recovery</title>
-<meta content="Start with a free 20–30-minute Pain Profile. If appropriate, the $179 introductory Assessment &amp; Care Plan includes a 60-minute nurse-led assessment and personalized written plan." name="description"/>
+<meta content="Start with a free 20–30-minute Pain Profile. If appropriate, the $179 introductory Pain Recovery Plan includes a 60-minute nurse-led assessment and personalized written plan." name="description"/>
 <link href="https://paincareathome.com/" rel="canonical"/>
 <!-- Favicon -->
 <link href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMzNjVFNEIiLz4KICA8cGF0aCBkPSJNMzIgMTIgQzIyIDIyIDE2IDMwIDE2IDM4IGExNiAxNiAwIDAgMCAzMiAwIEM0OCAzMCA0MiAyMiAzMiAxMiBaIiBmaWxsPSIjRkNGQUY2IiBvcGFjaXR5PSIwLjE2Ii8+CiAgPHRleHQgeD0iMzIiIHk9IjQ1IiBmb250LWZhbWlseT0iR2VvcmdpYSwgJ1RpbWVzIE5ldyBSb21hbicsIHNlcmlmIiBmb250LXNpemU9IjM4IiBmb250LXdlaWdodD0iNTAwIiBmaWxsPSIjRkNGQUY2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5QPC90ZXh0Pgo8L3N2Zz4K" rel="icon" type="image/svg+xml"/>
@@ -14,14 +14,14 @@
 <meta content="#365E4B" name="theme-color"/>
 <!-- Social preview (Open Graph / Twitter) -->
 <meta content="Pain Care At Home™ — Free Pain Profile for Chronic Pain Recovery" property="og:title"/>
-<meta content="Nurse-led, bilingual telehealth support for chronic pain recovery. Start with a free 20–30-minute Pain Profile; if appropriate, continue with a $179 introductory Assessment &amp; Care Plan." property="og:description"/>
+<meta content="Nurse-led, bilingual telehealth support for chronic pain recovery. Start with a free 20–30-minute Pain Profile; if appropriate, continue with a $179 introductory Pain Recovery Plan." property="og:description"/>
 <meta content="https://paincareathome.com/" property="og:url"/>
 <meta content="website" property="og:type"/>
 <meta content="https://paincareathome.com/hero-journaling.jpg" property="og:image"/>
 <meta content="Pain Care At Home™" property="og:site_name"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Pain Care At Home™ — Free Pain Profile for Chronic Pain Recovery" name="twitter:title"/>
-<meta content="Nurse-led, bilingual telehealth support for chronic pain recovery. Start with a free 20–30-minute Pain Profile and, if appropriate, a $179 introductory Assessment &amp; Care Plan." name="twitter:description"/>
+<meta content="Nurse-led, bilingual telehealth support for chronic pain recovery. Start with a free 20–30-minute Pain Profile and, if appropriate, a $179 introductory Pain Recovery Plan." name="twitter:description"/>
 <meta content="https://paincareathome.com/hero-journaling.jpg" name="twitter:image"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -1626,7 +1626,7 @@ img, svg { max-width: 100%; height: auto; }
 .cta-reassure { text-align: center !important; }
 </style>
 <style id="patient-journey-clarity">
-/* One patient pathway: story → screenings → conversation → next step */
+/* One patient pathway: story → Pain Profile → conversation → next step */
 .hero-left { padding-top:48px; padding-bottom:48px; }
 .hero h1 {
   font-size:clamp(2.45rem,3.5vw,3.35rem) !important;
@@ -2489,15 +2489,15 @@ document.addEventListener('DOMContentLoaded', function () {
       <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--clay,#8A6D5A);margin-bottom:10px;">Your first steps</p>
       <div style="display:flex;flex-direction:column;gap:8px;">
         <div class="journey-check-item">Tell us what living with pain has been like for you</div>
-        <div class="journey-check-item">Receive brief Pain Complexity screenings by email after you book</div>
-        <div class="journey-check-item">Complete them before your free 20–30-minute conversation</div>
+        <div class="journey-check-item">Receive your Pain Profile by email after you book</div>
+        <div class="journey-check-item">Complete it before your free 20–30-minute conversation</div>
         <div class="journey-check-item">Meet with a clinician who helps guide your next step</div>
       </div>`;
   }
 
   const heroTagline = document.querySelector('.hero-tagline');
   if (heroTagline) {
-    heroTagline.textContent = 'Your first step is free: book a 20–30-minute phone or video conversation. We will listen to your story, review your screening responses, and help you decide what support fits next.';
+    heroTagline.textContent = 'Your first step is free: book a 20–30-minute phone or video conversation. We will listen to your story, review your Pain Profile, and help you decide what support fits next.';
   }
 
   const providerHeroLink = document.querySelector('.hero-ctas .btn-outline');
@@ -2505,7 +2505,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const heroReassurance = document.querySelector('.hero .cta-reassure');
   if (heroReassurance) {
-    heroReassurance.innerHTML = 'Free 20–30 min · Screenings sent after booking · Phone or video · Adults 18+';
+    heroReassurance.innerHTML = 'Free 20–30 min · Pain Profile sent after booking · Phone or video · Adults 18+';
   }
 
   const journeyHeader = document.querySelector('.journey-header');
@@ -2513,7 +2513,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const heading = journeyHeader.querySelector('h2');
     const intro = journeyHeader.querySelector('p');
     if (heading) heading.textContent = 'Your recovery journey, step by step';
-    if (intro) intro.textContent = 'First, your story is heard. After you request the free Pain Profile, we email brief Pain Complexity screenings for you to complete before your 20–30-minute conversation. Together, we review what matters and choose the next step that fits.';
+    if (intro) intro.textContent = 'First, your story is heard. After you request the free Pain Profile, we email your Pain Profile for you to complete before your 20–30-minute conversation. Together, we review what matters and choose the next step that fits.';
   }
 
   const journeyGrid = document.querySelector('.journey-grid');
@@ -2535,9 +2535,9 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
       <div class="journey-step">
         <div class="journey-num jn-2">2</div>
-        <div class="journey-pill">Brief screenings</div>
-        <h3>Complete Your Screenings</h3>
-        <p>After you book, brief Pain Complexity screenings and a few additional questions are emailed to you to complete before the conversation.</p>
+        <div class="journey-pill">Your Pain Profile</div>
+        <h3>Complete Your Pain Profile</h3>
+        <p>After you book, we will email your Pain Profile for you to complete before the conversation. It helps us understand more about your pain experience so we can discuss it together.</p>
         <div class="hiw-outcomes">
           <p class="outcome-label">This helps us</p>
           <ul>
@@ -2565,7 +2565,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="journey-num jn-4">4</div>
         <div class="journey-pill">Support that fits</div>
         <h3>Continue Your Recovery</h3>
-        <p>If you want a complete Pain Profile and written plan, the $179 introductory Assessment &amp; Care Plan is the next step. Follow-up support is available after that.</p>
+        <p>If you want a complete Pain Profile and written plan, the $179 introductory Pain Recovery Plan is the next step. Follow-up support is available after that.</p>
         <div class="hiw-outcomes">
           <p class="outcome-label">You can receive</p>
           <ul>
@@ -2579,7 +2579,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const howNote = document.querySelector('.how-cta-note p');
   if (howNote) {
-    howNote.textContent = 'Start with the free Pain Profile. After you request it, we will email brief screenings to complete before your 20–30-minute conversation. That conversation helps you decide whether the $179 complete Pain Profile and written plan is right for you.';
+    howNote.textContent = 'Start with the free Pain Profile. After you request it, we will email your Pain Profile to complete before your 20–30-minute conversation. That conversation helps you decide whether the $179 Pain Recovery Plan is right for you.';
   }
 
   const faqQuestions = Array.from(document.querySelectorAll('.faq-q'));
@@ -2587,8 +2587,36 @@ document.addEventListener('DOMContentLoaded', function () {
     return question.textContent.trim() === 'What is the free Pain Profile?';
   });
   if (freeProfileQuestion && freeProfileQuestion.nextElementSibling) {
-    freeProfileQuestion.nextElementSibling.textContent = 'After you book, you receive brief Pain Complexity screenings and additional questions by email. You complete them before a free 20–30-minute phone or video conversation, where a clinician listens to your story, reviews what matters, and helps guide your next step. It is designed for adults 18+ living with pain that has lasted three months or longer. No commitment required.';
+    freeProfileQuestion.nextElementSibling.textContent = 'After you book, you receive your Pain Profile by email. You complete it before a free 20–30-minute phone or video conversation, where a clinician listens to your story, reviews what matters, and helps guide your next step. It is designed for adults 18+ living with pain that has lasted three months or longer. No commitment required.';
   }
+
+  const paidPlanQuestion = faqQuestions.find(function (question) {
+    return question.textContent.trim() === 'What does the $179 Assessment & Care Plan include?';
+  });
+  if (paidPlanQuestion) {
+    paidPlanQuestion.textContent = 'What does the $179 Pain Recovery Plan include?';
+    if (paidPlanQuestion.nextElementSibling) {
+      paidPlanQuestion.nextElementSibling.textContent = 'The introductory $179 Pain Recovery Plan includes a 60-minute nurse-led consultation, review of your completed Pain Profile and additional questions, a deeper evaluation of your recovery needs, personalized recommendations, and a written plan.';
+    }
+  }
+
+  const textReplacements = [
+    ['Pain Recovery Assessment & Care Plan™', 'Pain Recovery Plan™'],
+    ['Assessment & Care Plan', 'Pain Recovery Plan'],
+    ['Pain Complexity screenings', 'Pain Profile'],
+    ['brief screenings', 'Pain Profile'],
+    ['screenings', 'Pain Profile']
+  ];
+  const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const textNodes = [];
+  while (textWalker.nextNode()) textNodes.push(textWalker.currentNode);
+  textNodes.forEach(function (node) {
+    let text = node.nodeValue;
+    textReplacements.forEach(function (replacement) {
+      text = text.split(replacement[0]).join(replacement[1]);
+    });
+    node.nodeValue = text;
+  });
 
   if (window.location.hash) {
     const requestedSection = document.querySelector(window.location.hash);
