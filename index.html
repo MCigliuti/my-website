@@ -2740,7 +2740,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const heroTagline = document.querySelector('.hero-tagline');
   if (heroTagline) {
-    heroTagline.innerHTML = "RN-led support for adults whose persistent or complex pain has become difficult to understand or manage.<br><br>We help connect your pain story through education and personalized care planning. Start with a free 20-minute Pain Profile conversation.";
+    heroTagline.textContent = "We help connect your pain story through education and personalized care planning. Start with a free 20-minute Pain Profile conversation.";
   }
 
   const providerHeroLink = document.querySelector('.hero-ctas .btn-outline');
@@ -2751,7 +2751,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const heroReassurance = document.querySelector('.hero .cta-reassure');
   if (heroReassurance) {
-    heroReassurance.innerHTML = '20 minutes · Always free · No pressure · Phone or video';
+    heroReassurance.textContent = 'Always free · No pressure · Phone or video';
+    const heroAudience = document.createElement('p');
+    heroAudience.className = 'hero-audience';
+    heroAudience.style.cssText = 'font-size:0.85rem;line-height:1.6;margin-top:16px;';
+    heroAudience.textContent = 'RN-led support for adults whose persistent or complex pain has become difficult to understand or manage.';
+    heroReassurance.after(heroAudience);
   }
 
   const journeyHeader = document.querySelector('.journey-header');
